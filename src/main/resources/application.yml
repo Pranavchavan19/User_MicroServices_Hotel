@@ -20,7 +20,7 @@ spring:
     name: USER-SERVICE
 
   config:
-    import: configserver:http://localhost:8085
+    import: configserver:https://config-server-microservices-hotel.onrender.com
 
 #  profiles:
 #    active: dev
@@ -32,7 +32,7 @@ Eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: https://service-regsistry-microservices-hotel.onrender.com/eureka
 
 management:
   health:
