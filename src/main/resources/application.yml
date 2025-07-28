@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:postgresql://dpg-d1ml3dje5dus73as0ca0-a.oregon-postgres.render.com:5432/microservices
+    username: scm20_o9v8_user
+    password: JuWIGA7KOtbPriGPSQacK6Z0XbmBpbvT
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -20,7 +20,8 @@ spring:
     name: USER-SERVICE
 
   config:
-    import: configserver:https://config-server-microservices-hotel.onrender.com
+    import: optional:configserver:https://config-server-microservices-hotel.onrender.com
+
 
 #  profiles:
 #    active: dev
@@ -32,7 +33,8 @@ Eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: https://service-regsistry-microservices-hotel.onrender.com/eureka
+      defaultZone: https://service-regsistry-microservices-hotel.onrender.com/
+
 
 management:
   health:
@@ -69,7 +71,84 @@ resilience4j:
 
 
 
+#
+#
+#
+#
 
-
-
-
+#
+#server:
+#  port: 8081
+#
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://dpg-d1ml3dje5dus73as0ca0-a.oregon-postgres.render.com:5432/microservices
+#    username: scm20_o9v8_user
+#    password: JuWIGA7KOtbPriGPSQacK6Z0XbmBpbvT
+#    driver-class-name: org.postgresql.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#
+#  application:
+#    name: USER-SERVICE
+#
+#  config:
+#    import: configserver:http://localhost:8085
+#
+##  profiles:
+##    active: dev
+#
+#Eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#
+#management:
+#  health:
+#    circuitbreakers:
+#      enabled: true
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health
+#
+#  endpoint:
+#    health:
+#      show-details: always
+#
+#resilience4j:
+#  circuitbreaker:
+#    instances:
+#      ratingHotelBreaker:
+#        registerHealthIndicator: true
+#        eventConsumerBufferSize: 10
+#        failureRateThreshold: 50
+#        minimumNumberOfCalls: 5
+#        automaticTransitionFromOpenToHalfOpenEnabled: true
+#        waitDurationInOpenState: 6s
+#        permittedNumberOfCallsInHalfOpenState: 3
+#        slidingWindowSize: 10
+#        slidingWindowType: COUNT_BASED
+#
+#  retry:
+#    instances:
+#      ratingHotelService:
+#        max-attempts: 3
+#        wait-duration: 5s
+#
+#
+#
+#
+#
+#
+#

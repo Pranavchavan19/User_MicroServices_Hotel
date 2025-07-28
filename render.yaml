@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: user-service
+    env: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: default
+      - key: SPRING_CONFIG_IMPORT
+        value: optional:configserver:https://config-server-microservices-hotel.onrender.com
+      - key: SPRING_CLOUD_CONFIG_ENABLED
+        value: true
+      - key: SERVER_PORT
+        value: 8081
+      - key: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+        value: https://service-regsistry-microservices-hotel.onrender.com/
