@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService {
         //http://localhost:8083/ratings/usersId/3c9fb1f6-2aac-4140-a33a-fd1fa3a51174
 
 //       Rating[]  ratingsOfUser = restTemplate.getForObject("http://RATING-SERVICE/ratings/usersId/"+user.getUserId() ,Rating[].class);
-        Rating[]  ratingsOfUser = restTemplate.getForObject("https://rating-service-microservices-hotel.onrender.com/usersId/"+user.getUserId() ,Rating[].class);
+        Rating[]  ratingsOfUser = restTemplate.getForObject("https://rating-service-microservices-hotel.onrender.com/ratings/usersId/"+user.getUserId() ,Rating[].class);
 
        logger.info("{}" , ratingsOfUser);
 

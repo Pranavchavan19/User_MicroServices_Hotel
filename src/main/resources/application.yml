@@ -28,6 +28,7 @@ spring:
 
 eureka:
   instance:
+    hostname: user-microservices-hotel.onrender.com
     prefer-ip-address: false
   client:
     fetch-registry: true
