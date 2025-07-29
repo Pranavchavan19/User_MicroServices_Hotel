@@ -26,14 +26,14 @@ spring:
 #  profiles:
 #    active: dev
 
-Eureka:
+eureka:
   instance:
-    prefer-ip-address: true
+    prefer-ip-address: false
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: https://service-regsistry-microservices-hotel.onrender.com/
+      defaultZone: https://service-regsistry-microservices-hotel.onrender.com/eureka/
 
 
 management:

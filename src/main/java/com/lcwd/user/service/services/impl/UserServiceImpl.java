@@ -78,7 +78,8 @@ public class UserServiceImpl implements UserService {
         // fetch rating of user
         //http://localhost:8083/ratings/usersId/3c9fb1f6-2aac-4140-a33a-fd1fa3a51174
 
-       Rating[]  ratingsOfUser = restTemplate.getForObject("http://RATING-SERVICE/ratings/usersId/"+user.getUserId() ,Rating[].class);
+//       Rating[]  ratingsOfUser = restTemplate.getForObject("http://RATING-SERVICE/ratings/usersId/"+user.getUserId() ,Rating[].class);
+        Rating[]  ratingsOfUser = restTemplate.getForObject("https://rating-service-microservices-hotel.onrender.com/usersId/"+user.getUserId() ,Rating[].class);
 
        logger.info("{}" , ratingsOfUser);
 
@@ -89,7 +90,8 @@ public class UserServiceImpl implements UserService {
          // api cal to hotel service
          //http://localhost:8082/hotels/35adc930-9d33-4651-b1ea-012182ec9b1e
 
-        ResponseEntity<Hotel>  forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/"+rating.getHotelId(), Hotel.class);
+//        ResponseEntity<Hotel>  forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/"+rating.getHotelId(), Hotel.class);
+         ResponseEntity<Hotel>  forEntity = restTemplate.getForEntity("https://hotel-service-microservices-hotel.onrender.com/hotels/"+rating.getHotelId(), Hotel.class);
         Hotel hotel = forEntity.getBody();
 //         Hotel hotel = hotelService.getHotel(rating.getHotelId());
 //        logger.info("response entity code {}" ,forEntity.getStatusCode());
