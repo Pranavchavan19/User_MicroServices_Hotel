@@ -30,6 +30,9 @@ eureka:
   instance:
     hostname: user-microservices-hotel.onrender.com
     prefer-ip-address: false
+    instance-id: user-microservices-hotel.onrender.com
+    status-page-url: https://user-microservices-hotel.onrender.com/actuator/info
+    health-check-url: https://user-microservices-hotel.onrender.com/actuator/health
   client:
     fetch-registry: true
     register-with-eureka: true
